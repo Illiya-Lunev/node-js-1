@@ -1,7 +1,6 @@
 const { uuid } = require('uuidv4');
 const path = require('path');
 const fs = require('fs').promises;
-const { stringify } = require('querystring');
 
 const contactsPath = path.resolve('./db/contacts.json');
 
