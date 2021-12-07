@@ -21,5 +21,8 @@
   "homepage": "https://github.com/Illiya-Lunev/node-js-1#readme",
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "uuidv4": "^6.2.12"
   }
 }
