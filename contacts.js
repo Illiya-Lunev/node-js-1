@@ -48,10 +48,10 @@ async function removeContact(contactId) {
 async function addContact(name, email, phone) {
   const newContact = { id: uuid(), name, email, phone };
   try {
-    const contacts = await fs.readFile(contactsPath, 'utf8');
-    const contactsParsed = JSON.parse(contacts);
+    const result = await fs.readFile(contactsPath);
+    const contactsParsed = JSON.parse(result);
     const newContactList = [...contactsParsed, newContact];
-    await fs.writeFile(contactsPath, JSON.stringify(newContactList), 'utf8');
+    await fs.writeFile(contactsPath, JSON.stringify(newContactList));
     return console.table(newContactList);
   } catch (error) {
     console.log(error);
