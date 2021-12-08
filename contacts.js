@@ -36,7 +36,7 @@ async function removeContact(contactId) {
     const newContact = result.filter(
       contact => contact.id !== String(contactId),
     );
-    await fs.writeFile(contactsPath, JSON.stringify(newContact));
+    await fs.writeFile(contactsPath, JSON.stringify(newContact, null, 2));
 
     return console.table(newContact);
   } catch (error) {
@@ -50,7 +50,7 @@ async function addContact(name, email, phone) {
     const result = await fs.readFile(contactsPath);
     const contactsParsed = JSON.parse(result);
     const newContactList = [...contactsParsed, newContact];
-    await fs.writeFile(contactsPath, JSON.stringify(newContactList));
+    await fs.writeFile(contactsPath, JSON.stringify(newContactList, null, 2));
     return console.table(newContactList);
   } catch (error) {
     console.log(error);
